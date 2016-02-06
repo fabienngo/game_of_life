@@ -1,6 +1,5 @@
 from typing import Set, Tuple
 from itertools import product
-from copy import copy
 
 
 def compute_neighbors(x: int, y: int)-> Set[Tuple]:
@@ -41,9 +40,9 @@ def life(seed: Set[Tuple]):
             if (x, y) not in old_state:
                 if n_living_neighbors == 3:
                     new_state.add((x, y))
-            elif n_living_neighbors == 3 or n_living_neighbors == 2:
+            elif n_living_neighbors in (2, 3):
                 new_state.add((x, y))
-        old_state = copy(new_state)
+        old_state = set(new_state)
         new_state = set()
 
 if __name__ == "__main__":
