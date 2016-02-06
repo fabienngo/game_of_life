@@ -21,7 +21,7 @@ def compute_envelope(state: Set[Tuple]) -> Set[Tuple]:
     """
     envelope = set(state)
     for x, y in state:
-        envelope = envelope | compute_neighbors(x, y)
+        envelope |= compute_neighbors(x, y)
     return envelope
 
 
